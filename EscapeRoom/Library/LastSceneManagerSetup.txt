@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/ASL_Tutorials/Simple/ARWorldOrigin/ARWorldOrigin_Example.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
