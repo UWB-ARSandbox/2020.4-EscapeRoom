@@ -1,4 +1,4 @@
-﻿// Simplified SDF shader:
+// Simplified SDF shader:
 // - No Shading Option (bevel / bump / env map)
 // - No Glow Option
 // - Softness is applied on both side of the outline
@@ -6,7 +6,7 @@
 Shader "TextMeshPro/Mobile/Distance Field" {
 
 Properties {
-	_FaceColor          ("Face Color", Color) = (1,1,1,1)
+	_FaceColor			("Face Color", Color) = (1,1,1,1)
 	_FaceDilate			("Face Dilate", Range(-1,1)) = 0
 
 	_OutlineColor		("Outline Color", Color) = (0,0,0,1)
