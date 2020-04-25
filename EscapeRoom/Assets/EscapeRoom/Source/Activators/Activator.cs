@@ -47,11 +47,11 @@ public class Activator : MonoBehaviour, IInteractable
         set { _interactionRange = (value > 0) ? value : float.PositiveInfinity; }
     }
 
-    public StatusInfo Hover(Vector3 actorPos)
+    public StatusInfo Hover(Transform t)
     {
         if(_isInteractable)
         {
-            Vector3 actorToActivator = actorPos - this.transform.position;
+            Vector3 actorToActivator = t.position - this.transform.position;
             if (actorToActivator.magnitude < _interactionRange)
             {
                 return activatedObj.GetStatus();
@@ -60,11 +60,11 @@ public class Activator : MonoBehaviour, IInteractable
         return null;
     }
 
-    public void Interact(Vector3 actorPos)
+    public void Interact(Transform t)
     {
         if (_isInteractable)
         {
-            Vector3 actorToActivator = actorPos - this.transform.position;
+            Vector3 actorToActivator = t.position - this.transform.position;
             if (actorToActivator.magnitude < _interactionRange)
             {
                 activatedObj.ToggleActivation();
