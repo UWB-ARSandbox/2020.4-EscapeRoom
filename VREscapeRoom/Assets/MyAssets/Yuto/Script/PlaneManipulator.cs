@@ -242,11 +242,11 @@ public class PlaneManipulator : MonoBehaviour
                                         selectedPointer = p;
                                         Debug.Log(selected);
                                     }
-                                    else if(p != selectedPointer)
-                                    {
-                                        swap(obj);
-                                        break;
-                                    }
+                                    //else if(p != selectedPointer)
+                                    //{
+                                    //    swap(obj);
+                                    //    break;
+                                    //}
 
 
                                 }
