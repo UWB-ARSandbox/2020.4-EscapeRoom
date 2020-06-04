@@ -19,18 +19,28 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        trigger.on = true;
+        if(other.tag == "Players")
+        {
+            trigger.on = true;
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        trigger.on = false;
+        if (other.tag == "Players")
+        {
+            trigger.on = false;
+        }
     }
 
     //Needed incase two objects are colliding and one exits, the trigger
     //will stay on
     private void OnTriggerStay(Collider other)
     {
-        trigger.on = true;
+        if (other.tag == "Players")
+        {
+            trigger.on = true;
+        }
     }
 }

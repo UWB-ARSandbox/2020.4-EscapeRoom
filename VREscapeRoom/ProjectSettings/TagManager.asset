@@ -9,6 +9,7 @@ TagManager:
   - Pickable
   - Hand
   - Wall
+  - Players
   layers:
   - Default
   - TransparentFX

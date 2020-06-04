@@ -7,43 +7,47 @@ using UnityEngine;
 
 public class Rotatable : MonoBehaviour
 {
-    [SerializeField] private Transform xForm;
+    [SerializeField] private GameObject parent;
     private GameObject controller;
     private ASLObject asl;
     private bool active = false;
     private bool prev = false;
-    private Quaternion startRot;
-    private Quaternion endRot;
+    private Vector3 startPos;
     // Start is called before the first frame update
     void Start()
     {
-        asl = xForm.gameObject.GetComponent<ASLObject>();
+        startPos = this.transform.position;
+        asl = parent.GetComponent<ASLObject>();
         asl._LocallySetFloatCallback(callBackMethod);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(active && controller)
-        {
-            endRot = controller.transform.rotation.normalized;
-        }
+
     }
 
     private void callBackMethod(string id, float[] f)
     {
-        Vector3 r = new Vector3(f[0], f[1], f[2]);
-        xForm.eulerAngles = r;
+            Vector3 r = new Vector3(f[0], f[1], f[2]);
+            Vector3 p = new Vector3(f[3], f[4], f[5]);
+            Vector3 sp = new Vector3(f[6], f[7], f[8]);
+            parent.transform.position = p;
+            parent.transform.eulerAngles = r;
+            startPos = p;
     }
 
     private float[] setCallbackArray()
     {
-        float[] f = new float[3];
-        Vector3 r = xForm.eulerAngles;
+        float[] f = new float[9];
+        Vector3 r = parent.transform.eulerAngles;
+        Vector3 p = parent.transform.position;
         f[0] = r.x;
         f[1] = r.y;
         f[2] = r.z;
+        f[3] = startPos.x;
+        f[4] = startPos.y;
+        f[5] = startPos.z;
         return f;
     }
 
@@ -52,7 +56,16 @@ public class Rotatable : MonoBehaviour
      */
     public void activate()
     {
-        active = true;
+        Debug.Log("activate");
+        if (controller)
+        {
+            if (!active)
+            {
+                active = true;
+                parent.transform.parent = controller.transform;
+                asl.SendAndSetClaim(null, 0, true);
+            }
+        }
     }
 
 
@@ -61,17 +74,25 @@ public class Rotatable : MonoBehaviour
      */
     public void deactivate()
     {
-        active = false;
+        Debug.Log("deactivate");
+        if (active)
+        {
+            active = false;
+            parent.transform.parent = null;
+            setNewRotation();
+            asl.SendAndSetClaim(send, 500, true);
+            parent.transform.position = startPos;
+            controller = null;
+        }
     }
 
     private void setNewRotation()
     {
-        xForm.rotation = xForm.rotation * (Quaternion.Inverse(startRot) * endRot);
-        Vector3 rot = xForm.eulerAngles;
+        Vector3 rot = parent.transform.eulerAngles;
         rot.x = Mathf.Round(rot.x/90)*90;
         rot.y = Mathf.Round(rot.y / 90) * 90;
         rot.z = Mathf.Round(rot.z / 90) * 90;
-        xForm.eulerAngles = rot;
+        parent.transform.eulerAngles = rot;
     }
 
     /*
@@ -85,9 +106,6 @@ public class Rotatable : MonoBehaviour
             if(!controller)
             {
                 controller = other.gameObject;
-                activate();
-                startRot = controller.transform.rotation.normalized;
-                asl.SendAndSetClaim(send, 1500, true);
             }
         }
     }
@@ -99,9 +117,7 @@ public class Rotatable : MonoBehaviour
     {
         if (other.gameObject == controller)
         {
-            controller = null;
-            deactivate();
-            setNewRotation();
+           controller = null;
         }
     }
 
