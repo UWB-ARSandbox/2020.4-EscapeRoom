@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &200060380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +530,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &761619997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 761619999}
+  - component: {fileID: 761619998}
+  m_Layer: 0
+  m_Name: TimerDisplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &761619998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761619997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773906ac992901a4ea462fb6bc55bea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneToLoad: Timer Test
+  restart: 0
+  quit: 0
+--- !u!4 &761619999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761619997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.013812, y: -8.962794, z: -3.4115102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &812727691 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3005532989192912273, guid: 6fa4c2edc067aa24b96be2817e003d1b, type: 3}
@@ -575,28 +621,31 @@ MonoBehaviour:
     id: 16
     description: Locomotion
     axisConstraint: 4
-  select:
-    id: 0
-    description: 
-    axisConstraint: 0
-  rotateL:
-    id: 0
-    description: 
-    axisConstraint: 0
-  rotateR:
-    id: 0
-    description: 
-    axisConstraint: 0
   menu:
     id: 0
     description: 
     axisConstraint: 0
-  cancel:
+  select:
     id: 0
     description: 
     axisConstraint: 0
-  planes: {fileID: 0}
-  controller: {fileID: 829248341}
+  grabL:
+    id: 0
+    description: 
+    axisConstraint: 0
+  grabR:
+    id: 0
+    description: 
+    axisConstraint: 0
+  switchL:
+    id: 0
+    description: 
+    axisConstraint: 0
+  switchR:
+    id: 0
+    description: 
+    axisConstraint: 0
+  inventory: {fileID: 0}
   deadZone: 0.4
 --- !u!4 &829248340
 Transform:
@@ -798,6 +847,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fa4c2edc067aa24b96be2817e003d1b, type: 3}
+--- !u!1001 &1220999738
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3423222768871359040, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_Name
+      value: Timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423222768871359042, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.8492885
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423222768871359042, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.0709765
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423222768871359042, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.545367
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423222768871359042, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423222768871359042, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423222768871359042, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423222768871359042, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423222768871359042, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423222768871359042, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423222768871359042, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423222768871359042, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 82fa87cfb1ec7864db26a8b39e7ce5cd, type: 3}
 --- !u!1001 &1495970136
 PrefabInstance:
   m_ObjectHideFlags: 0

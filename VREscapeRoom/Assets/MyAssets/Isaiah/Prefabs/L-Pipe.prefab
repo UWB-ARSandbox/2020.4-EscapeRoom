@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4349897139470143158}
   - component: {fileID: 4894617166108488456}
   - component: {fileID: 8559063234218064120}
-  - component: {fileID: 4432562395551109572}
+  - component: {fileID: 7350094223427500106}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -73,7 +73,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.62, y: 0.26, z: 0.26}
   m_Center: {x: 0.187, y: 0.25, z: 0}
---- !u!114 &4432562395551109572
+--- !u!114 &7350094223427500106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,8 +87,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states: {fileID: 11400000, guid: 5eac1712038236e4b8ffdb3893804fe1, type: 2}
   InputActionId: 0
-  isGlobal: 1
-  Dimensions: 2
+  isGlobal: 0
+  Dimensions: 1
   dimensionIndex: 0
   startDimensionIndex: 0
   CanSelect: 1
@@ -98,7 +98,6 @@ MonoBehaviour:
   profiles:
   - Target: {fileID: 0}
     Themes:
-    - {fileID: 0}
     - {fileID: 0}
   OnClick:
     m_PersistentCalls:
@@ -119,14 +118,14 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    ClassName: InteractableOnToggleReceiver
-    AssemblyQualifiedName: Microsoft.MixedReality.Toolkit.UI.InteractableOnToggleReceiver,
+    ClassName: InteractableOnPressReceiver
+    AssemblyQualifiedName: Microsoft.MixedReality.Toolkit.UI.InteractableOnPressReceiver,
       Microsoft.MixedReality.Toolkit.SDK, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null
     Settings:
     - Type: 18
-      Label: On Deselect
-      Name: OnDeselect
-      Tooltip: The toggle is deselected
+      Label: On Release
+      Name: OnRelease
+      Tooltip: The button is released
       IntValue: 0
       StringValue: 
       FloatValue: 0
@@ -164,6 +163,38 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
       Options: []
+    - Type: 5
+      Label: Interaction Filter
+      Name: InteractionFilter
+      Tooltip: Specify whether press event is for near or far interaction
+      IntValue: 0
+      StringValue: 
+      FloatValue: 0
+      BoolValue: 0
+      GameObjectValue: {fileID: 0}
+      ScriptableObjectValue: {fileID: 0}
+      ObjectValue: {fileID: 0}
+      MaterialValue: {fileID: 0}
+      TextureValue: {fileID: 0}
+      ColorValue: {r: 0, g: 0, b: 0, a: 0}
+      Vector2Value: {x: 0, y: 0}
+      Vector3Value: {x: 0, y: 0, z: 0}
+      Vector4Value: {x: 0, y: 0, z: 0, w: 0}
+      CurveValue:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+      AudioClipValue: {fileID: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      EventValue:
+        m_PersistentCalls:
+          m_Calls: []
+      Options:
+      - Near and Far
+      - Near Only
+      - Far Only
   enabledOnStart: 1
 --- !u!1 &4263560814770769542
 GameObject:

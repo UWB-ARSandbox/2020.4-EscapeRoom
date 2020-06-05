@@ -29,12 +29,12 @@ public class Rotatable : MonoBehaviour
 
     private void callBackMethod(string id, float[] f)
     {
-            Vector3 r = new Vector3(f[0], f[1], f[2]);
-            Vector3 p = new Vector3(f[3], f[4], f[5]);
-            Vector3 sp = new Vector3(f[6], f[7], f[8]);
-            parent.transform.position = p;
-            parent.transform.eulerAngles = r;
-            startPos = p;
+        Vector3 r = new Vector3(f[0], f[1], f[2]);
+        Vector3 p = new Vector3(f[3], f[4], f[5]);
+        Vector3 sp = new Vector3(f[6], f[7], f[8]);
+        parent.transform.position = p;
+        parent.transform.eulerAngles = r;
+        startPos = p;
     }
 
     private float[] setCallbackArray()
@@ -56,7 +56,6 @@ public class Rotatable : MonoBehaviour
      */
     public void activate()
     {
-        Debug.Log("activate");
         if (controller)
         {
             if (!active)
@@ -74,7 +73,6 @@ public class Rotatable : MonoBehaviour
      */
     public void deactivate()
     {
-        Debug.Log("deactivate");
         if (active)
         {
             active = false;
