@@ -11,7 +11,42 @@ public class PickableBehaviour : MonoBehaviour
     public Vector3 scaleToBe;
     public Vector3 adjust;
 
-    public void setItemToPos()
+    private bool placed;
+    private float activate;
+
+    void Start()
+    {
+        placed = false;
+        activate = 0f;
+        this.GetComponent<ASL.ASLObject>()._LocallySetFloatCallback(callBackMethod);
+    }
+
+    void Update()
+    {
+        if (activate == 1f && !placed)
+        {
+            setItemToPos();
+            placed = true;
+        }
+    }
+
+    public void callBackMethod(string _id, float[] f)
+    {
+        activate = f[0];
+    }
+
+    public void setActivate()
+    {
+        this.GetComponent<ASL.ASLObject>().SendAndSetClaim(() =>
+        {
+            float[] myValue = new float[1];
+            myValue[0] = 1f;
+            //In this example, playerHealth would be updated to 3.5 for all users
+            this.GetComponent<ASL.ASLObject>().SendFloatArray(myValue);
+        });
+    }
+
+    void setItemToPos()
     {
         this.transform.SetParent(parentToBe.transform);
 

@@ -66,6 +66,7 @@ public class PlayerController_R : MonoBehaviour
             this.GetComponent<ASL.ASLObject>().SendAndSetClaim(() =>
             {
                 this.GetComponent<ASL.ASLObject>().SendAndIncrementWorldPosition(moveDirection * speed * Time.fixedDeltaTime);
+
             });
         }
 

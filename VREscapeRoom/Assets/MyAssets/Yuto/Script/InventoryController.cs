@@ -140,7 +140,7 @@ public class InventoryController : MonoBehaviour
 
         if(leftItem != null && leftItem.GetComponent<PickableBehaviour>() != null && leftItem.GetComponent<PickableBehaviour>().isClose())
         {
-            leftItem.GetComponent<PickableBehaviour>().setItemToPos();
+            leftItem.GetComponent<PickableBehaviour>().setActivate();
             leftInventory.Remove(leftItem);
             if(leftInventory.Count > 0)
             {
@@ -154,7 +154,7 @@ public class InventoryController : MonoBehaviour
 
         if (rightItem != null && rightItem.GetComponent<PickableBehaviour>() != null && rightItem.GetComponent<PickableBehaviour>().isClose())
         {
-            rightItem.GetComponent<PickableBehaviour>().setItemToPos();
+            rightItem.GetComponent<PickableBehaviour>().setActivate();
             rightInventory.Remove(rightItem);
             if (rightInventory.Count > 0)
             {

@@ -83,7 +83,7 @@ public class LaserBeam : MonoBehaviour
             // and direction of this LaserBeam obj (usually attached emitter obj)
             RecalculateAtSegment(0, this.transform.position, this.transform.up);
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
